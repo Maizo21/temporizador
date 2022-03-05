@@ -35,7 +35,7 @@ const restart = function () {
 const play = function (newTimer = true) {
   paused = false;
   let hour, minute, second;
-
+  document.querySelector(".timer__controls--pause").textContent = "Pausar";
   /* Si se tiene ya iniciado el temporizador y se da play a uno nuevo */
   if (newTimer) {
     clearInterval(time);
@@ -88,6 +88,7 @@ const play = function (newTimer = true) {
     clearInput();
     clearTime();
     paused = false;
+    document.querySelector(".timer__controls--pause").textContent = "Pausar";
   };
 
   buttonReset.addEventListener("click", restartTime);
@@ -98,9 +99,11 @@ const pause = function () {
   if (!paused) {
     clearInterval(time);
     paused = true;
+    document.querySelector(".timer__controls--pause").textContent = "Reanudar";
   } else {
     play(false);
     paused = false;
+    document.querySelector(".timer__controls--pause").textContent = "Pausar";
   }
 };
 
