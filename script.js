@@ -47,6 +47,8 @@ const play = function (newTimer = true) {
     document.querySelector(".timer__time--hours").textContent = hour;
     document.querySelector(".timer__time--minutes").textContent = minute;
     document.querySelector(".timer__time--seconds").textContent = second;
+
+    document.title = `Temporizador - ${hour}:${minute}:${second}`;
   }
 
   clearInput();
@@ -71,7 +73,10 @@ const play = function (newTimer = true) {
       .slice(-2)
       .padStart(2, "0");
 
-    /* Colocacion de valores de la cuenta regresiva en el timer */
+    /* Colocacion de valores de la cuenta regresiva en el timer y head title*/
+
+    document.title = `Temporizador - ${hour}:${minute}:${second}`;
+
     document.querySelector(".timer__time--hours").textContent = String(
       hour
     ).padStart(2, "0");
@@ -89,6 +94,7 @@ const play = function (newTimer = true) {
     clearTime();
     paused = false;
     document.querySelector(".timer__controls--pause").textContent = "Pausar";
+    document.title = `Temporizador`;
   };
 
   buttonReset.addEventListener("click", restartTime);
